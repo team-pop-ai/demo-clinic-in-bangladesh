@@ -1,0 +1,62 @@
+[
+  {
+    "id": "dr-smith-cardiology",
+    "name": "Sarah Smith",
+    "specialty": "Cardiology",
+    "timezone": "EST",
+    "location": "New York",
+    "experience_years": 12,
+    "availability": {
+      "monday": ["09:00", "17:00"],
+      "tuesday": ["09:00", "17:00"],
+      "wednesday": ["09:00", "17:00"],
+      "thursday": ["09:00", "17:00"],
+      "friday": ["09:00", "16:00"]
+    }
+  },
+  {
+    "id": "dr-johnson-dermatology",
+    "name": "Michael Johnson",
+    "specialty": "Dermatology",
+    "timezone": "PST",
+    "location": "Los Angeles",
+    "experience_years": 8,
+    "availability": {
+      "monday": ["10:00", "17:00"],
+      "tuesday": ["10:00", "17:00"],
+      "wednesday": ["10:00", "17:00"],
+      "thursday": ["10:00", "17:00"],
+      "friday": ["10:00", "15:00"]
+    }
+  },
+  {
+    "id": "dr-williams-general",
+    "name": "Emily Williams",
+    "specialty": "General Practice",
+    "timezone": "CST",
+    "location": "Chicago",
+    "experience_years": 15,
+    "availability": {
+      "monday": ["08:00", "16:00"],
+      "tuesday": ["08:00", "16:00"],
+      "wednesday": ["08:00", "16:00"],
+      "thursday": ["08:00", "16:00"],
+      "friday": ["08:00", "15:00"]
+    }
+  },
+  {
+    "id": "dr-brown-endocrinology",
+    "name": "David Brown",
+    "specialty": "Endocrinology",
+    "timezone": "EST",
+    "location": "Boston",
+    "experience_years": 10,
+    "availability": {
+      "monday": ["09:00", "17:00"],
+      "tuesday": ["09:00", "17:00"],
+      "wednesday": ["09:00", "17:00"],
+      "thursday": ["09:00", "17:00"],
+      "friday": ["09:00", "16:00"]
+    }
+  }
+]

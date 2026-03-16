@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Confirmed - MediCare US</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="confirmation-header">
+            <div class="success-icon">✅</div>
+            <h1>Appointment Confirmed!</h1>
+            <p class="success-message">Your appointment has been successfully booked</p>
+        </header>
+        
+        <main class="confirmation-content">
+            <div class="booking-card">
+                <h3>Appointment Details</h3>
+                <div class="detail-row">
+                    <span class="label">Doctor:</span>
+                    <span class="value">{{ doctor.name }} - {{ doctor.specialty }}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Date:</span>
+                    <span class="value">{{ booking.appointment_date }}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Time:</span>
+                    <span class="value">{{ booking.appointment_time }} ({{ doctor.timezone }})</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Patient:</span>
+                    <span class="value">{{ booking.patient_name }}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Contact:</span>
+                    <span class="value">{{ booking.patient_email }}</span>
+                </div>
+            </div>
+            
+            <div class="ai-message">
+                <h3>Important Information</h3>
+                <div class="message-content">
+                    {{ booking.confirmation_message }}
+                </div>
+            </div>
+            
+            <div class="next-steps">
+                <h3>What's Next?</h3>
+                <ul>
+                    <li>📧 Confirmation email sent to {{ booking.patient_email }}</li>
+                    <li>📱 You'll receive a WhatsApp reminder 1 day before</li>
+                    <li>💻 Video link will be shared 30 minutes before your appointment</li>
+                    <li>📋 Please have your medical history ready</li>
+                </ul>
+            </div>
+            
+            <div class="actions">
+                <button id="addToCalendar" class="btn-secondary">📅 Add to Calendar</button>
+                <button onclick="window.location.href='/book'" class="btn-primary">Book Another Appointment</button>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Add to calendar functionality
+        document.getElementById('addToCalendar').addEventListener('click', function() {
+            const appointment = {
+                date: '{{ booking.appointment_date }}',
+                time: '{{ booking.appointment_time }}',
+                doctor: '{{ doctor.name }}',
+                specialty: '{{ doctor.specialty }}'
+            };
+            
+            const startDate = new Date(`${appointment.date}T${appointment.time}`);
+            const endDate = new Date(startDate.getTime() + 30 * 60000); // 30 minutes
+            
+            const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Medical Appointment with Dr. ${appointment.doctor}&dates=${startDate.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endDate.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=Video consultation with ${appointment.doctor} - ${appointment.specialty}`;
+            
+            window.open(calendarUrl, '_blank');
+        });
+        
+        // Success animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const successIcon = document.querySelector('.success-icon');
+            setTimeout(() => {
+                successIcon.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    successIcon.style.transform = 'scale(1)';
+                }, 200);
+            }, 300);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - MediCare US</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="booking-header">
+            <h1>🏥 MediCare US</h1>
+            <h2>Book Your Appointment</h2>
+        </header>
+        
+        <div class="progress-indicator">
+            <div class="step active" data-step="1">
+                <span class="step-number">1</span>
+                <span class="step-label">Select Doctor</span>
+            </div>
+            <div class="step" data-step="2">
+                <span class="step-number">2</span>
+                <span class="step-label">Date & Time</span>
+            </div>
+            <div class="step" data-step="3">
+                <span class="step-number">3</span>
+                <span class="step-label">Your Details</span>
+            </div>
+            <div class="step" data-step="4">
+                <span class="step-number">4</span>
+                <span class="step-label">Confirm</span>
+            </div>
+        </div>
+        
+        <main class="booking-main">
+            <!-- Step 1: Doctor Selection -->
+            <section id="step1" class="booking-step active">
+                <h3>Choose Your Doctor</h3>
+                <div id="doctorsList" class="doctors-grid">
+                    <!-- Doctors will be loaded here -->
+                </div>
+            </section>
+            
+            <!-- Step 2: Date & Time -->
+            <section id="step2" class="booking-step">
+                <h3>Select Date & Time</h3>
+                <div id="selectedDoctor" class="selected-doctor"></div>
+                <div class="timezone-info">
+                    <p>🕒 Times shown in Bangladesh timezone</p>
+                </div>
+                <div id="availabilityCalendar" class="calendar-section">
+                    <!-- Calendar will be loaded here -->
+                </div>
+            </section>
+            
+            <!-- Step 3: Patient Details -->
+            <section id="step3" class="booking-step">
+                <h3>Your Information</h3>
+                <form id="patientForm" class="patient-form">
+                    <div class="form-group">
+                        <label for="patientName">Full Name *</label>
+                        <input type="text" id="patientName" name="patientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patientEmail">Email Address *</label>
+                        <input type="email" id="patientEmail" name="patientEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patientPhone">Phone Number *</label>
+                        <input type="tel" id="patientPhone" name="patientPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patientNotes">Reason for Visit (Optional)</label>
+                        <textarea id="patientNotes" name="patientNotes" rows="3"></textarea>
+                    </div>
+                </form>
+            </section>
+            
+            <!-- Step 4: Confirmation -->
+            <section id="step4" class="booking-step">
+                <h3>Confirm Your Appointment</h3>
+                <div id="bookingSummary" class="booking-summary">
+                    <!-- Summary will be populated -->
+                </div>
+            </section>
+        </main>
+        
+        <footer class="booking-footer">
+            <button id="prevBtn" class="btn-secondary" style="display: none;">← Previous</button>
+            <button id="nextBtn" class="btn-primary">Next →</button>
+            <button id="confirmBtn" class="btn-primary" style="display: none;">
+                <span class="btn-text">Confirm Appointment</span>
+                <span class="loading-spinner" style="display: none;">⏳</span>
+            </button>
+        </footer>
+    </div>
+    
+    <script src="/static/script.js"></script>
+</body>
+</html>

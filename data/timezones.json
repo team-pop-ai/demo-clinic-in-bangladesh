@@ -1,0 +1,33 @@
+{
+  "conversions": {
+    "EST_to_BDT": 11,
+    "CST_to_BDT": 12,
+    "PST_to_BDT": 14
+  },
+  "doctor_locations": {
+    "dr-smith-cardiology": {
+      "timezone": "EST",
+      "city": "New York",
+      "utc_offset": -5
+    },
+    "dr-johnson-dermatology": {
+      "timezone": "PST",
+      "city": "Los Angeles", 
+      "utc_offset": -8
+    },
+    "dr-williams-general": {
+      "timezone": "CST",
+      "city": "Chicago",
+      "utc_offset": -6
+    },
+    "dr-brown-endocrinology": {
+      "timezone": "EST",
+      "city": "Boston",
+      "utc_offset": -5
+    }
+  },
+  "bangladesh": {
+    "timezone": "BDT",
+    "utc_offset": 6
+  }
+}

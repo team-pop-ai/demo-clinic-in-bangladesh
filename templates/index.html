@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare US - Book Your Appointment</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="social-context">
+        <div class="referral-badge">
+            <span>📱 From Instagram</span>
+        </div>
+    </div>
+    
+    <div class="container">
+        <header class="hero">
+            <h1>🏥 MediCare US</h1>
+            <p class="tagline">Quality American Healthcare, Accessible Worldwide</p>
+        </header>
+        
+        <main class="landing-content">
+            <div class="value-prop">
+                <h2>Book Your US Doctor Appointment</h2>
+                <ul class="benefits">
+                    <li>✅ Board-certified US physicians</li>
+                    <li>✅ Video consultations in your timezone</li>
+                    <li>✅ Instant booking - no waiting</li>
+                    <li>✅ Secure & confidential</li>
+                </ul>
+            </div>
+            
+            <div class="cta-section">
+                <button id="bookNowBtn" class="cta-button">
+                    Book Your Appointment Now
+                    <span class="arrow">→</span>
+                </button>
+                <p class="assurance">Takes less than 2 minutes</p>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        document.getElementById('bookNowBtn').addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                window.location.href = '/book';
+            }, 150);
+        });
+        
+        // Simulate social media entry animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                document.body.style.transition = 'all 0.5s ease';
+                document.body.style.opacity = '1';
+                document.body.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
